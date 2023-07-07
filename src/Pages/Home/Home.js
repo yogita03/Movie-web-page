@@ -10,8 +10,7 @@ const Home = () => {
     const [ popularMovies, setPopularMovies ] = useState([])
 
     useEffect(() => {
-         fetch("https://api.themoviedb.org/3/movie/popular?api_key=751632ab8e5a6dc0bed04bd4a3f2761b&language=en-US")
-        
+        fetch("https://api.themoviedb.org/3/movie/popular?api_key=751632ab8e5a6dc0bed04bd4a3f2761b&language=en-US")
         .then(res => res.json())
         .then(data => setPopularMovies(data.results))
     }, [])
@@ -30,7 +29,6 @@ const Home = () => {
                         popularMovies.map(movie => (
                             <Link style={{textDecoration:"none",color:"white"}} to={`/movie/${movie.id}`} >
                                 <div className="posterImage">
-                                    {/* <img src={`https://image.tmdb.org/t/p/original${movie && movie.backdrop_path}`} /> */}
                                     <img src={`https://image.tmdb.org/t/p/original${movie && movie.backdrop_path}`} />
                                 </div>
                                 <div className="posterImage__overlay">
@@ -48,11 +46,10 @@ const Home = () => {
                         ))
                     }
                 </Carousel>
-                <MovieList /> 
-             </div>
-            {/* <h3>Home Page</h3> */}
+                <MovieList />
+            </div>
         </>
     )
 }
 
-export default Home 
+export default Home
